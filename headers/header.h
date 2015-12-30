@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/27 12:37:20 by                   #+#    #+#             */
-/*   Updated: 2015/12/30 16:03:02 by                  ###   ########.fr       */
+/*   Updated: 2015/12/30 23:03:59 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct t_array
 
 char			**ft_tabcpy(char **dst, char **src, int n);
 char			**ft_getarray(int fd);
-int				ft_game(char *path);
+int				ft_game(char *path, int speed);
 
 int				ft_checklen(char **tab, int *y, int *x);
 int				ft_checkarray(char **tab, int *y, int *x);
@@ -53,7 +53,7 @@ int				ft_checkmiddlemiddle(char **tab, s_pt pt);
 int				ft_checkfullcase(s_array *array, s_pt);
 
 int				ft_modifyarray(s_array *array, s_array *new_array, s_pt pt);
-int				ft_conways(s_array array);
+int				ft_conways(s_array array, int speed);
 
 void			ft_display(s_array array);
 

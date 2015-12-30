@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/27 12:32:16 by                   #+#    #+#             */
-/*   Updated: 2015/12/30 15:08:01 by                  ###   ########.fr       */
+/*   Updated: 2015/12/30 23:11:48 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,32 +52,59 @@ char	**ft_getarray(int fd)
 	return (tab);
 }
 
-int			ft_game(char *path)
+int			ft_game(char *path, int speed)
 {
 	int			fd;
 	s_array		array;
 
 	if ((fd = open(path, O_RDONLY)) < 0)
-		return (0);
+		return (-1);
 	array.tab = ft_getarray(fd);
 	if (!(ft_checkarray(array.tab, &array.pt_max.y, &array.pt_max.x)))
 		return (0);
-	ft_conways(array);
+	ft_conways(array, speed);
 	return (1);
 }
 
 int			main(int argc, char **argv)
 {
-	if (argc == 2)
+	int error;
+	int i;
+
+	if (argc > 1 && argc < 4)
 	{
-		if (!ft_game(argv[1]))
-			ft_putstr("error\n");
-		else
+		if (argc == 2)
 		{
-			ft_putstr("victoire\n");
-			return (0);
+			if ((error = ft_game(argv[1], 500 * 1000)) == -1)
+				ft_putstr("ERROR : Bad path\n\n");
+			else if (error == 0)
+			{
+				ft_putstr("ERROR : Bad array\n\n");
+				return (0);
+			}
+			else
+				return (0);
+		}
+		if (argc == 3)
+		{
+			i = 0;
+			while (argv[2][i] && ft_isdigit(argv[2][i]))
+				i++;
+			if (i == (int)ft_strlen(argv[2]))
+			{
+				if ((error = ft_game(argv[1], ft_atoi(argv[2]) * 1000) == -1))
+					ft_putstr("ERROR : Bad path\n\n");
+				else if (error == 0)
+				{
+					ft_putstr("ERROR : Bad path\n\n");
+					return (0);
+				}
+			}
+			else
+				ft_putstr("ERROR : Bad speed\n\n");
 		}
 	}
-	ft_putstr("precisez un fichier\n");
+	ft_putstr("Using :\n\tParam 1 : path of array\n \
+	Param 2 : speed -> 1000 for 1s (not obligatory)\n\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 06:30:35 by                   #+#    #+#             */
-/*   Updated: 2015/12/30 18:35:52 by                  ###   ########.fr       */
+/*   Updated: 2015/12/30 23:04:37 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_modifyarray(s_array *array, s_array *new_array, s_pt pt)
 	return (0);
 }
 
-int			ft_conways(s_array array)
+int			ft_conways(s_array array, int speed)
 {
 	s_array new_array;
 	int		modify;
@@ -51,7 +51,7 @@ int			ft_conways(s_array array)
 	while (modify)
 	{
 		ft_display(array);
-		sleep(1);
+		usleep(speed);
 		new_array = ft_initarray(new_array);
 		modify = 0;
 		pt.y = 0;
@@ -63,11 +63,9 @@ int			ft_conways(s_array array)
 				modify += ft_modifyarray(&array, &new_array, pt);
 				pt.x++;
 			}
-			ft_putchar('\n');
 			pt.y++;
 		}
-		ft_display(new_array);
-		ft_memswap((void **)array.tab, (void **)new_array.tab);
+		ft_swap((int *)&array.tab, (int *)&new_array.tab);
 	}
 	return (1);
 }
