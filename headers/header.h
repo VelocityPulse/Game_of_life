@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/27 12:37:20 by                   #+#    #+#             */
-/*   Updated: 2015/12/30 14:24:01 by                  ###   ########.fr       */
+/*   Updated: 2015/12/30 16:03:02 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char			**ft_tabcpy(char **dst, char **src, int n);
 char			**ft_getarray(int fd);
 int				ft_game(char *path);
 
-int				ft_checklen(char **tab, int y);
+int				ft_checklen(char **tab, int *y, int *x);
 int				ft_checkarray(char **tab, int *y, int *x);
 
 s_array			ft_arrayalloc(s_pt pt_max);
@@ -54,5 +54,7 @@ int				ft_checkfullcase(s_array *array, s_pt);
 
 int				ft_modifyarray(s_array *array, s_array *new_array, s_pt pt);
 int				ft_conways(s_array array);
+
+void			ft_display(s_array array);
 
 #endif

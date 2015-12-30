@@ -6,17 +6,17 @@
 /*   By:  <cchameyr.student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 08:34:29 by cchameyr          #+#    #+#             */
-/*   Updated: 2015/12/30 08:38:17 by                  ###   ########.fr       */
+/*   Updated: 2015/12/30 18:41:44 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memswap(void **a, void **b)
+void	ft_swap(int *a, int *b)
 {
-	void	*temp;
+	int		temp;
 
-	temp = b;
-	b = a;
-	a = temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }

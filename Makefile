@@ -6,7 +6,7 @@
 #*   By: cchameyr <cchameyr@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2015/12/27 12:40:31 by cchameyr          #+#    #+#             *#
-#*   Updated: 2015/12/30 08:09:00 by                  ###   ########.fr       *#
+#*   Updated: 2015/12/30 15:39:09 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -17,14 +17,16 @@ SRCS =	sources/main.c \
 		sources/check_array.c \
 		sources/array.c \
 		sources/conways.c \
-		sources/check_case.c
+		sources/check_case.c \
+		sources/display.c
 
 OBJS =	main.o \
 		get_next_line.o \
 		check_array.o \
 		array.o \
 		conways.o \
-		check_case.o
+		check_case.o \
+		display.o
 
 LIB =	libft/libft.a
 
