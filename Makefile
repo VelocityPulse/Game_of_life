@@ -6,7 +6,7 @@
 #*   By: cchameyr <cchameyr@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2015/12/27 12:40:31 by cchameyr          #+#    #+#             *#
-#*   Updated: 2015/12/29 13:25:51 by                  ###   ########.fr       *#
+#*   Updated: 2015/12/29 22:42:30 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -14,9 +14,11 @@ NAME =	game
 
 SRCS =	sources/main.c \
 		sources/get_next_line.c \
+		sources/check_array.c
 
 OBJS =	main.o \
 		get_next_line.o \
+		check_array.o
 
 LIB =	libft/libft.a
 
