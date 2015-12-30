@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 06:30:35 by                   #+#    #+#             */
-/*   Updated: 2015/12/30 08:26:01 by                  ###   ########.fr       */
+/*   Updated: 2015/12/30 14:54:31 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,24 @@ int			ft_conways(s_array array)
 	int		modify;
 	s_pt	pt;
 
-	new_array = ft_initarray(ft_arrayalloc(array.pt_max));
+	new_array = ft_arrayalloc(array.pt_max);
 	modify = 1;
 	while (modify)
 	{
+		new_array = ft_initarray(new_array);
 		modify = 0;
 		pt.x = 0;
 		while (pt.y < array.pt_max.y)
 		{
 			pt.x = 0;
-			if (ft_utility(array)) // a coder
-			{
+//			if (ft_utility(array)) // a coder
+//			{
 				while (pt.x++ < array.pt_max.y)
 					modify = ft_modifyarray(&array, &new_array, pt);
-			}
+//			}
 			pt.y++;
 		}
+		ft_memswap((void **)array.tab, (void **)new_array.tab);
 	}
 	return (1);
 }

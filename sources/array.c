@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 07:16:05 by                   #+#    #+#             */
-/*   Updated: 2015/12/30 07:22:09 by                  ###   ########.fr       */
+/*   Updated: 2015/12/30 14:57:43 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ s_array		ft_arrayalloc(s_pt pt_max)
 s_array		ft_initarray(s_array new_array)
 {
 	int		i;
-	while (i < new_array.pt_max.y)
-		ft_bzero(new_array.tab[i++], new_array.pt_max.x);
+
+	i = 0;
+	while (i < new_array.pt_max.y && new_array.tab[i])
+		ft_bzero((void *)new_array.tab[i++], new_array.pt_max.x);
 	return (new_array);
 }
