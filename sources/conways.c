@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 06:30:35 by                   #+#    #+#             */
-/*   Updated: 2015/12/30 08:05:28 by                  ###   ########.fr       */
+/*   Updated: 2015/12/30 08:26:01 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,27 @@ int			ft_modifyarray(s_array *array, s_array *new_array, s_pt pt)
 	int		case_used;
 
 	case_used = ft_checkfullcase(array, pt);
+	if (array->tab[pt.y][pt.x] == 'o')
+	{
+		if (case_used == 2 || case_used == 3)
+		{
+			new_array->tab[pt.y][pt.x] = array->tab[pt.y][pt.x];
+			return (0);
+		}
+		new_array->tab[pt.y][pt.x] = '.';
+		return (1);
+	}
+	if (array->tab[pt.y][pt.x] == '.')
+	{
+		if (case_used != 3)
+		{
+			new_array->tab[pt.y][pt.y] = array->tab[pt.y][pt.x];
+			return (0);
+		}
+		new_array->tab[pt.y][pt.x] = 'o';
+		return (1);
+	}
+	return (0);
 }
 
 int			ft_conways(s_array array)
@@ -42,4 +63,5 @@ int			ft_conways(s_array array)
 			pt.y++;
 		}
 	}
+	return (1);
 }

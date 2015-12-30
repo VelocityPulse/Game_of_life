@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/27 12:37:20 by                   #+#    #+#             */
-/*   Updated: 2015/12/30 08:07:46 by                  ###   ########.fr       */
+/*   Updated: 2015/12/30 08:21:40 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,8 @@ int				ft_checkcaselastline(char **tab, s_pt pt);
 int				ft_checkcasemiddle(char **tab, s_pt pt);
 int				ft_checkmiddlemiddle(char **tab, s_pt pt);
 int				ft_checkfullcase(s_array *array, s_pt);
+
+int				ft_modifyarray(s_array *array, s_array *new_array, s_pt pt);
+int				ft_conways(s_array array);
 
 #endif
