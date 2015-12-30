@@ -6,43 +6,23 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 06:30:35 by                   #+#    #+#             */
-/*   Updated: 2015/12/30 07:12:50 by                  ###   ########.fr       */
+/*   Updated: 2015/12/30 08:05:28 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/header.h"
 
-s_array		ft_arrayalloc(s_pt pt_max)
+int			ft_modifyarray(s_array *array, s_array *new_array, s_pt pt)
 {
-	s_array		new_array;
+	int		case_used;
 
-	new_array.tab = (char **)malloc(sizeof(char *) * (pt_max.y));
-	while (new_array.pt_max.y < pt_max.y)
-		new_array.tab[new_array.pt_max.y++] = ft_memalloc(pt_max.x);
-	new_array.pt_max.x = pt_max.x;
-	return (new_array);
-}
-
-s_array		ft_initarray(s_array new_array)
-{
-	int		i;
-
-	i = 0;
-	while (i < new_array.pt_max.y)
-		ft_bzero(new_array.tab[i++], new_array.pt_max.x);
-	return (new_array);
-}
-
-int			ft_modifyarray(s_array *array, s_array *new_array)
-{
-	
+	case_used = ft_checkfullcase(array, pt);
 }
 
 int			ft_conways(s_array array)
 {
 	s_array new_array;
 	int		modify;
-	int		case_used;
 	s_pt	pt;
 
 	new_array = ft_initarray(ft_arrayalloc(array.pt_max));
@@ -54,10 +34,10 @@ int			ft_conways(s_array array)
 		while (pt.y < array.pt_max.y)
 		{
 			pt.x = 0;
-			if (ft_utility(array))
+			if (ft_utility(array)) // a coder
 			{
 				while (pt.x++ < array.pt_max.y)
-					modify = ft_modifyarray(&array, &new_array);
+					modify = ft_modifyarray(&array, &new_array, pt);
 			}
 			pt.y++;
 		}

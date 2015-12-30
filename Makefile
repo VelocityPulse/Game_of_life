@@ -6,7 +6,7 @@
 #*   By: cchameyr <cchameyr@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2015/12/27 12:40:31 by cchameyr          #+#    #+#             *#
-#*   Updated: 2015/12/29 22:42:30 by                  ###   ########.fr       *#
+#*   Updated: 2015/12/30 08:09:00 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -14,11 +14,17 @@ NAME =	game
 
 SRCS =	sources/main.c \
 		sources/get_next_line.c \
-		sources/check_array.c
+		sources/check_array.c \
+		sources/array.c \
+		sources/conways.c \
+		sources/check_case.c
 
 OBJS =	main.o \
 		get_next_line.o \
-		check_array.o
+		check_array.o \
+		array.o \
+		conways.o \
+		check_case.o
 
 LIB =	libft/libft.a
 
