@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/27 12:32:16 by                   #+#    #+#             */
-/*   Updated: 2016/01/03 13:30:40 by                  ###   ########.fr       */
+/*   Updated: 2016/01/05 15:42:21 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,10 @@ int			main(int argc, char **argv)
 		if (argc == 2)
 		{
 			if ((error = ft_game(argv[1], 500 * 1000)) == -1)
+			{
 				ft_putstr("ERROR : Bad path\n\n");
+				return (0);
+			}
 			else if (error == 0)
 			{
 				ft_putstr("ERROR : Bad array\n\n");
@@ -92,13 +95,18 @@ int			main(int argc, char **argv)
 				i++;
 			if (i == (int)ft_strlen(argv[2]))
 			{
-				if ((error = ft_game(argv[1], ft_atoi(argv[2]) * 1000) == -1))
-					ft_putstr("ERROR : Bad path\n\n");
-				else if (error == 0)
+				if ((error = ft_game(argv[1], ft_atoi(argv[2]) * 1000)) == -1)
 				{
 					ft_putstr("ERROR : Bad path\n\n");
 					return (0);
 				}
+				else if (error == 0)
+				{
+					ft_putstr("ERROR : Bad array\n\n");
+					return (0);
+				}
+				else
+					return (0);
 			}
 			else
 				ft_putstr("ERROR : Bad speed\n\n");
