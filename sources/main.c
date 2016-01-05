@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/27 12:32:16 by                   #+#    #+#             */
-/*   Updated: 2016/01/05 15:42:21 by                  ###   ########.fr       */
+/*   Updated: 2016/01/05 15:56:53 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,9 @@ int			ft_game(char *path, int speed)
 	if (!(ft_checkarray(array.tab, &array.pt_max.y, &array.pt_max.x)))
 		return (0);
 	ft_conways(array, speed);
+	while (--array.pt_max.y)
+		ft_memdel((void **)&array.tab[array.pt_max.y]);
+	ft_memdel((void **)array.tab);
 	return (1);
 }
 
