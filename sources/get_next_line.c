@@ -6,13 +6,10 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 14:43:33 by cchameyr          #+#    #+#             */
-/*   Updated: 2015/12/29 13:09:17 by                  ###   ########.fr       */
+/*   Updated: 2016/01/05 14:46:29 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include "../headers/get_next_line.h"
 
 static char		*ft_get_line(char *str)
@@ -48,7 +45,19 @@ static char		*ft_end_chain(char *str)
 	return (end_chain);
 }
 
-int		get_next_line(const int fd, char **line)
+static int		ft_alloc_gnl(char **save, char **buff)
+{
+	if (!(*buff = ft_strnew(BUFF_SIZE + 1)))
+		return (-1);
+	if (!*save)
+	{
+		if (!(*save = ft_strnew(1)))
+			return (-1);
+	}
+	return (1);
+}
+
+int				get_next_line(const int fd, char **line)
 {
 	static char	*save = NULL;
 	char		*buff;
@@ -56,10 +65,8 @@ int		get_next_line(const int fd, char **line)
 	int			ret;
 
 	ret = 42;
-	if (!(buff = ft_strnew(BUFF_SIZE + 1)))
+	if (ft_alloc_gnl(&save, &buff) == -1)
 		return (-1);
-	if (!save)
-		save = ft_strnew(1);
 	while (!(ft_strchr(save, '\n')) && ret > 0)
 	{
 		if ((ret = read(fd, buff, BUFF_SIZE)) == -1)
