@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 15:33:48 by                   #+#    #+#             */
-/*   Updated: 2015/12/30 17:50:13 by                  ###   ########.fr       */
+/*   Updated: 2016/06/10 11:50:15 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_display(s_array array)
 {
 	s_pt pt;
 
+	system("clear");
 	pt.y = 0;
 	while (pt.y < array.pt_max.y)
 	{
@@ -25,5 +26,4 @@ void	ft_display(s_array array)
 		ft_putchar('\n');
 		pt.y++;
 	}
-	ft_putchar('\n');
 }
