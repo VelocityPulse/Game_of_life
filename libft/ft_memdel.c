@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cchameyr <cchameyr@students.42.fr>         +#+  +:+       +#+        */
+/*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/27 12:08:35 by cchameyr          #+#    #+#             */
-/*   Updated: 2015/12/21 17:22:46 by                  ###   ########.fr       */
+/*   Created: 2016/02/15 13:47:45 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/05/26 14:17:18 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_memdel(void **ap)
 {
-	if (ap != NULL)
+	if (ap != NULL && *ap != NULL)
 	{
 		free(*ap);
 		*ap = NULL;

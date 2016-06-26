@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_make_ptll.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/15 13:45:38 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/02/15 13:45:40 by cchameyr         ###   ########.fr       */
+/*   Created: 2016/03/21 12:20:17 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/03/21 12:20:18 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, char *s2)
+t_ptll		ft_make_ptll(long long x, long long y)
 {
-	int		size;
-	int		cpt;
+	t_ptll	ptll;
 
-	cpt = 0;
-	size = ft_strlen(s1);
-	while (s2[cpt])
-		s1[size++] = s2[cpt++];
-	s1[size] = '\0';
-	return (s1);
+	ptll.x = x;
+	ptll.y = y;
+	return (ptll);
 }

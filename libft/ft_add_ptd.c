@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_add_ptd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/15 13:45:38 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/02/15 13:45:40 by cchameyr         ###   ########.fr       */
+/*   Created: 2016/04/03 12:09:02 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/04/03 12:10:38 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, char *s2)
+t_ptd		ft_add_ptd(t_ptd pt1, t_ptd pt2)
 {
-	int		size;
-	int		cpt;
+	t_ptd		pt3;
 
-	cpt = 0;
-	size = ft_strlen(s1);
-	while (s2[cpt])
-		s1[size++] = s2[cpt++];
-	s1[size] = '\0';
-	return (s1);
+	pt3.x = pt1.x + pt2.x;
+	pt3.y = pt1.y + pt2.y;
+	return (pt3);
 }

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/15 13:45:38 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/02/15 13:45:40 by cchameyr         ###   ########.fr       */
+/*   Created: 2016/06/15 14:37:08 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/06/15 14:39:07 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, char *s2)
+int		ft_power(int nb, int pow)
 {
-	int		size;
-	int		cpt;
+	int x;
 
-	cpt = 0;
-	size = ft_strlen(s1);
-	while (s2[cpt])
-		s1[size++] = s2[cpt++];
-	s1[size] = '\0';
-	return (s1);
+	x = nb;
+	while (pow > 1)
+	{
+		nb *= x;
+		pow--;
+	}
+	return (nb);
 }

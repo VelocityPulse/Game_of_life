@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_ishexa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/15 13:45:38 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/02/15 13:45:40 by cchameyr         ###   ########.fr       */
+/*   Created: 2016/06/24 11:23:54 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/06/24 11:27:20 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, char *s2)
+int		ft_ishexa(int c)
 {
-	int		size;
-	int		cpt;
-
-	cpt = 0;
-	size = ft_strlen(s1);
-	while (s2[cpt])
-		s1[size++] = s2[cpt++];
-	s1[size] = '\0';
-	return (s1);
+	if (((c >= 'A' && c <= 'F') || (c >= 'a' && c <= 'f')) || ft_isdigit(c))
+		return (1);
+	return (0);
 }

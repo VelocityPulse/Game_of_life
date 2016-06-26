@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_pt_alloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/15 13:45:38 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/02/15 13:45:40 by cchameyr         ###   ########.fr       */
+/*   Created: 2016/02/04 17:45:35 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/02/04 17:49:37 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "unistd.h"
 
-char	*ft_strcat(char *s1, char *s2)
+t_pt	**ft_pt_alloc(t_pt size)
 {
-	int		size;
-	int		cpt;
+	t_pt	**pt;
+	int		i;
 
-	cpt = 0;
-	size = ft_strlen(s1);
-	while (s2[cpt])
-		s1[size++] = s2[cpt++];
-	s1[size] = '\0';
-	return (s1);
+	i = 0;
+	pt = (t_pt **)ft_memalloc(sizeof(t_pt *) * (size.y + 1));
+	while (i <= size.y)
+		pt[i++] = (t_pt *)ft_memalloc(sizeof(t_pt) * (size.x + 1));
+	return (pt);
+}
+
+t_pt	**ft_free_pt(t_pt **tab_pts, int size)
+{
+	if (!tab_pts)
+		return (NULL);
+	size++;
+	while (--size)
+		ft_memdel((void **)&tab_pts[size]);
+	ft_memdel((void **)tab_pts);
+	return (tab_pts);
 }

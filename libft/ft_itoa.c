@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cchameyr <cchameyr@students.42.fr>         +#+  +:+       +#+        */
+/*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 03:20:13 by cchameyr          #+#    #+#             */
-/*   Updated: 2015/11/30 14:27:40 by cchameyr         ###   ########.fr       */
+/*   Created: 2016/06/15 14:40:27 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/06/15 14:40:29 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ char		*ft_itoa(int n)
 
 	nbr = n;
 	len = ft_itoa_len(nbr);
-	str = (char *)malloc(sizeof(char *) * (len + 1));
-	str[len] = '\0';
+	if (!(str = ft_strnew(len)))
+		return (NULL);
 	if (n < 0)
 		nbr = -nbr;
 	while (len)
